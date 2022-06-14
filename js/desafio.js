@@ -1,5 +1,5 @@
 class prendas {
-    constructor(nombre, talle, color, precio){
+    constructor(nombre, talle, color, precio) {
         this.nombre = nombre;
         this.talle = talle;
         this.color = color;
@@ -8,19 +8,19 @@ class prendas {
     mostrarProducto() {
         document.write(`Este pack incluye los siguientes productos:` + `<br>`)
         document.write(`Producto: ` + this.nombre + `<br>`);
-        document.write(`Talles: ` +this.talle + `<br>`);
-        document.write(`Colores: ` +this.color + `<br>`);
-        document.write(`Precio: $` +this.precio + `<br>`);
+        document.write(`Talles: ` + this.talle + `<br>`);
+        document.write(`Colores: ` + this.color + `<br>`);
+        document.write(`Precio: $` + this.precio + `<br>`);
     }
-    alerta(){
+    alerta() {
         alert(`Pack de ${this.nombre}\n incluye\n 5 ${this.nombre}\n Talles: ${this.talle}\n Colores: ${this.color}\n Su precio es de: $${this.precio} `)
     }
 }
 
-const pack1 = new prendas (`remeras`, `S-XL`, `rojo-negro-blanco`, 2500);
-const pack2 = new prendas (`camisas`, `S-XL`, `diversas estampas`, 3500);
-const pack3 = new prendas (`pantalones`, `40-58`, `azul-negro-gris`, 5000);
-const pack4 = new prendas (`camperas`, `S-XXL`, `consultar motivos`, 8000);
+const pack1 = new prendas(`remeras`, `S-XL`, `rojo-negro-blanco`, 2500);
+const pack2 = new prendas(`camisas`, `S-XL`, `diversas estampas`, 3500);
+const pack3 = new prendas(`pantalones`, `40-58`, `azul-negro-gris`, 5000);
+const pack4 = new prendas(`camperas`, `S-XXL`, `consultar motivos`, 8000);
 
 
 
@@ -72,12 +72,19 @@ function pedirCantidad() {
 
 pedirNombre();
 alert(`Nuestros packs de productos son los siguientes: `)
-const array = [];
-array.push(pack1.alerta(), pack1.nombre + " " + pack1.precio);
-array.push(pack2.alerta(), pack2.nombre + " " + pack2.precio);
-array.push(pack3.alerta(), pack3.nombre + " " + pack3.precio);
-array.push(pack4.alerta(), pack4.nombre + " " + pack4.precio);
-console.log(array);
+const arrayLista = [];
+pack1.alerta();
+pack2.alerta();
+pack3.alerta();
+pack4.alerta();
+arrayLista.push(`nombre: ` + pack1.nombre + " " + `precio: $` + pack1.precio);
+arrayLista.push(`nombre: ` + pack2.nombre + " " + `precio: $` + pack2.precio);
+arrayLista.push(`nombre: ` + pack3.nombre + " " + `precio: $` + pack3.precio);
+arrayLista.push(`nombre: ` + pack4.nombre + " " + `precio: $` + pack4.precio);
+console.log(arrayLista);
+for (let i = 0; i < arrayLista.length; i++) {
+    document.write(arrayLista[i] + ` por unidad.` + `<br>`);
+}
 
 do {
     elegirProducto();
@@ -89,3 +96,11 @@ do {
 alert("el precio total es: $" + total);
 alert("Gracias por su compra, en breve nos estaremos comunicando para la entrega")
 
+let stock = arrayLista.find(function (finder){
+    if (`zapatillas`== true) {
+        document.write(`tenemos zapatillas`);
+    }else{
+        document.write(`no tenemos zapatillas en stock `);
+     
+    }
+})
