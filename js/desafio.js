@@ -72,18 +72,19 @@ function pedirCantidad() {
 
 pedirNombre();
 alert(`Nuestros packs de productos son los siguientes: `)
-const arrayLista = [];
 pack1.alerta();
 pack2.alerta();
 pack3.alerta();
 pack4.alerta();
-arrayLista.push(`nombre: ` + pack1.nombre + " " + `precio: $` + pack1.precio);
-arrayLista.push(`nombre: ` + pack2.nombre + " " + `precio: $` + pack2.precio);
-arrayLista.push(`nombre: ` + pack3.nombre + " " + `precio: $` + pack3.precio);
-arrayLista.push(`nombre: ` + pack4.nombre + " " + `precio: $` + pack4.precio);
+const arrayLista = [];
+arrayLista.push(pack1.nombre);
+arrayLista.push(pack2.nombre);
+arrayLista.push(pack3.nombre);
+arrayLista.push(pack4.nombre);
 console.log(arrayLista);
+
 for (let i = 0; i < arrayLista.length; i++) {
-    document.write(arrayLista[i] + ` por unidad.` + `<br>`);
+    document.write(`Tenemos packs de ` + arrayLista[i] +`<br>`);
 }
 
 do {
@@ -96,11 +97,14 @@ do {
 alert("el precio total es: $" + total);
 alert("Gracias por su compra, en breve nos estaremos comunicando para la entrega")
 
-let stock = arrayLista.find(function (finder){
-    if (`zapatillas`== true) {
-        document.write(`tenemos zapatillas`);
-    }else{
-        document.write(`no tenemos zapatillas en stock `);
-     
-    }
+
+arrayLista.forEach((find)=>{
+    console.log(find)
 })
+
+
+const buscador = arrayLista.find(producto => producto == `remeras`)
+document.write(`Tenemos stock de: ` + buscador + `<br>`);
+
+const filtro = arrayLista.filter(elemento => elemento == `camperas`)
+document.write(`Si hay ${filtro} en el deposito`)
